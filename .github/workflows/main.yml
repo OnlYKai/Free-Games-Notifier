@@ -15,6 +15,9 @@ jobs:
         with:
           node-version: 20
       
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      
       - name: Run Script
         run: node index.js
         env:
