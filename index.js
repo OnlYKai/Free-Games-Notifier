@@ -1,7 +1,7 @@
 import fs from 'fs'
 
-//const api_key = process.env.API_KEY
-//const webhook_url = process.env.WEBHOOK_URL
+const api_key = process.env.API_KEY
+const webhook_url = process.env.WEBHOOK_URL
 
 /// SETTINGS START ///
 const mature = true
@@ -57,4 +57,5 @@ for(const game of games) {
 }
 
 fs.writeFileSync('previous_ids.json', JSON.stringify(ids))
+
 
