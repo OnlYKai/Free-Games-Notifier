@@ -33,7 +33,7 @@ const message = (game) => {
 
 const filter = 'N4IgDgTglgxgpiAXKAtlAdk9BXANrgGhBQEMAPJABgF9qg%3D%3D' // Max Price = 0; Way faster if used with sort=price, probably because it stops checking after encountering the first too expensive game.
 
-const url = `https://api.isthereanydeal.com/deals/v2?key=${API_KEY}&limit=200&sort=price&filter=${filter}&mature=${mature}&country=${country}&shops=${shops.join()}`
+const url = `https://api.isthereanydeal.com/deals/v2?key=${api_key}&limit=200&sort=price&filter=${filter}&mature=${mature}&country=${country}&shops=${shops.join()}`
 
 const deals_response = await fetch(url)
 const deals = await deals_response.json()
@@ -47,7 +47,7 @@ const ids = []
 for(const game of games) {
     ids.push(game.id)
     if (previous_ids.includes(game.id)) continue
-    await fetch(WEBHOOK_URL, {
+    await fetch(webhook_url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -57,5 +57,6 @@ for(const game of games) {
 }
 
 fs.writeFileSync('previous_ids.json', JSON.stringify(ids))
+
 
 
