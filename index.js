@@ -1,5 +1,8 @@
 import fs from 'fs'
 
+const api_key = process.env.API_KEY
+const webhook_url = process.env.WEBHOOK_URL
+
 /// SETTINGS START ///
 const mature = true
 const country = 'DE' // https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
@@ -52,4 +55,5 @@ for(const game of games) {
         body: JSON.stringify(message(game))
     })
 }
+
 fs.writeFileSync('previous_ids.json', JSON.stringify(ids))
