@@ -55,8 +55,4 @@ for(const game of games) {
         body: JSON.stringify(message(game))
     })
 }
-
 fs.writeFileSync('previous_ids.json', JSON.stringify(ids))
-
-
-
