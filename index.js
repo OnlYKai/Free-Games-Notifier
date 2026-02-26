@@ -18,7 +18,7 @@ const message = (game) => {
             {
                 'title': `${game.title}`,
                 'url': `${game.deal.url}`,
-                'description': `Platform: ${game.deal.shop.name}\n\n:dollar: ~~${regular_price}~~ -> ${current_price}\n:red_circle: Ends <t:${timestamp}:R>\n\u200B`,
+                'description': `Platform: ${game.deal.shop.name}\n\n:dollar: **~~${regular_price}~~ ➜ ${current_price}**\n:red_circle: Ends <t:${timestamp}:R>\n\u200B`,
                 'thumbnail': {
                     'url': `${game.assets.boxart}`
                 },
@@ -56,3 +56,4 @@ for(const game of games) {
     })
 }
 fs.writeFileSync('previous_ids.json', JSON.stringify(ids))
+
