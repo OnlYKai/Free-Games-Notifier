@@ -47,13 +47,13 @@ const ids = []
 for(const game of games) {
     ids.push(game.id)
     if (previous_ids.includes(game.id)) continue
-    await fetch(webhook_url, {
+    const webhook_response = await fetch(webhook_url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(message(game))
     })
+    console.log('Webhook status:', webhook_response.status, await webhook_response.text());
 }
 fs.writeFileSync('previous_ids.json', JSON.stringify(ids))
-
